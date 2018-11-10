@@ -13,4 +13,8 @@ class TaskManagerApp < Sinatra::Base
   get '/tasks/new' do
     erb :new
   end
+
+  post '/tasks' do
+    "<p>Params: #{params}</p> <p>Task params: #{params[:task]}</p>"
+  end
 end
