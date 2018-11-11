@@ -20,6 +20,17 @@ class Task
     Task.new(task)
   end
 
+  def self.update(id, task_params)
+    database.execute("UPDATE tasks
+                      SET title = ?,
+                          description = ?
+                      WHERE id = ?;",
+                      task_params[:title],
+                      task_params[:description],
+                      id)
+    Task.find(id)
+  end
+
   def self.database
     database = SQLite3::Database.new('db/task_manager_development.db')
     database.results_as_hash = true
