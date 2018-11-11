@@ -36,4 +36,9 @@ class TaskManagerApp < Sinatra::Base
     task.save
     redirect '/tasks'
   end
+
+  delete '/tasks/:id' do |id|
+    Task.destroy(id.to_i)
+    redirect '/tasks'
+  end
 end

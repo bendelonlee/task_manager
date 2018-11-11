@@ -43,4 +43,9 @@ class Task
       Task.new(task)
     end
   end
+
+  def self.destroy(id)
+    database.execute("DELETE FROM tasks
+                      WHERE id = ?;", id)
+  end
 end
