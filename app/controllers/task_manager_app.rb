@@ -11,6 +11,11 @@ class TaskManagerApp < Sinatra::Base
     erb :index
   end
 
+  get '/tasks/:id' do
+    @task = Task.find(params[:id])
+    erb :show
+  end
+
   get '/tasks/new' do
     erb :new
   end
